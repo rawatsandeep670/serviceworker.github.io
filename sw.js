@@ -17,11 +17,7 @@ self.addEventListener('fetch', function(event){
       url: 'https://developers.google.com/web/fundamentals/getting-started/push-notifications/'
     }
   };
-  event.waitUntil(
-    Promise.all([
-      self.registration.showNotification(
-        notificationTitle, notificationOptions)
-    ])
-  );
+self.registration.showNotification(notificationTitle, notificationOptions);
+  
   // return something for each interception
 });
