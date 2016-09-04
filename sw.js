@@ -11,26 +11,6 @@ self.addEventListener('fetch', function(event){
 });
 
 self.addEventListener('message', function(event){
-    self.postMessage("SW Says 'Hello back!' "+event.data);
-    if ('Notification' in window) {
-       // Check for permission
-        if(Notification.permission=='granted') {
-            // Get service worker to show notification
-            self.registration.showNotification(notificationData.data.title, {  
-                body: notificationData.data.body,
-                icon: 'favicon.ico' 
-            }); 
-        }
-        else {
-          //We need to ask permission
-          Notification.requestPermission(function(permission) {
-            if(permission=='granted') {
-              self.registration.showNotification(notificationData.data.title, {  
-                body: notificationData.data.body,
-                icon: 'favicon.ico' 
-              });  
-            }          
-          });
-        }
-    }
+  console.log(event.data);
+    //self.postMessage("SW Says 'Hello back!' "+event.data);
 });
