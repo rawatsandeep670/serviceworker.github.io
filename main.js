@@ -1,5 +1,11 @@
 (function(){
     window.onload = function(event){
+
+        var btn = document.querySelector(".push-btn");
+        btn.addEventListener("click", function(event){
+            alert("push");
+        });
+        //register Service worker
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('./sw.js')
             .then(function(reg){
