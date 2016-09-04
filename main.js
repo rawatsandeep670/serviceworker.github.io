@@ -3,7 +3,10 @@
 
         var btn = document.querySelector(".push-btn");
         btn.addEventListener("click", function(event){
-            alert("push");
+             navigator.serviceWorker.controller.postMessage("Service Worker");
+        });
+        navigator.serviceWorker.addEventListener('message', function(event){
+            alert(event.data);
         });
         //register Service worker
         if ('serviceWorker' in navigator) {

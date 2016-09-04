@@ -7,17 +7,9 @@ self.addEventListener('activate', function(event){
 
 self.addEventListener('fetch', function(event){
   console.log('fetch : '+event.request.url);
-  let notificationTitle = 'Hello';
-  const notificationOptions = {
-    body: 'Thanks for sending this push msg.',
-    icon: './images/icon-192x192.png',
-    badge: './images/icon-72x72.png',
-    tag: 'simple-push-demo-notification',
-    data: {
-      url: 'https://developers.google.com/web/fundamentals/getting-started/push-notifications/'
-    }
-  };
-self.registration.showNotification(notificationTitle, notificationOptions);
-  
   // return something for each interception
+});
+
+self.addEventListener('message', function(event){
+    event.ports[0].postMessage("SW Says 'Hello back!' "+event.data);
 });
